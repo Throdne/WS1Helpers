@@ -28,7 +28,6 @@ The logging function allows you to log messages with different severity levels (
 ### Example Usage
 
 ```powershell
-$LogFilePath = "$env:ProgramData\Airwatch\UnifiedAgent\Logs"
 $LogFileName = "FileName.log"
 
 # function Write-Log...
