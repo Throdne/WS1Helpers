@@ -1,4 +1,3 @@
-$LogFilePath = "$env:ProgramData\Airwatch\UnifiedAgent\Logs"
 $LogFileName = "FileName.log"
 
 function Write-Log {
@@ -14,7 +13,7 @@ function Write-Log {
     If (-not (Test-Path $LogFilePath)) {
         New-Item -ItemType Directory -Path $LogFilePath -Force
     }
-
+    $LogFilePath = "$env:ProgramData\Airwatch\UnifiedAgent\Logs"
     $time = (Get-Date).ToString("yyyy-MM-dd HH:mm:ss")
     $formattedMessage = "$time [$LogLevel] - $Message"
     $formattedMessage | Out-File -FilePath "$LogFilePath\$LogFileName" -Append -Encoding UTF8
