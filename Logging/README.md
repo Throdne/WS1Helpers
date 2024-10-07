@@ -6,17 +6,6 @@ This PowerShell script provides a logging function to enable local log collectio
 
 The logging function allows you to log messages with different severity levels (Info, Warning, Error, Debug) and saves them to a specified log file.
 
-## Usage
-
-1. **Start the collection for device logs via the WS1 UEM Console**:
-   - Navigate to the Workspace ONE UEM admin console.
-   - Go to `Devices > Select a device > More Actions > Request Device Log`.
-   - Make sure to select "HUB" logs
-
-2. **Download Device Logs**:
-   - Navigate to `Devices > Select the same device > More > Shred Device Logs`.
-   - Download the spanned `.zip` files. WS1 separates the logs into parts; there might be more than one file.
-
 ## Function Overview
 
 ### `Write-Log`
@@ -40,9 +29,21 @@ Write-Log -Message "An error occurred while processing." -LogLevel "Error"
 ```
 
 # Unzip Spanned Log File
-Unzip spanned log files downloaded from Workspace One admin console.
+Unzip spanned log files downloaded from Workspace One UEM admin console.
 
-Example Execution:
+## Collect and Downlaod Logs from WS1 UEM
+
+1. **Start the collection for device logs via the WS1 UEM Console**:
+   - Navigate to the Workspace ONE UEM admin console.
+   - Go to `Devices > Select a device > More Actions > Request Device Log`.
+   - Make sure to select "HUB" logs
+
+2. **Download Device Logs**:
+   - Navigate to `Devices > Select the same device > More > Shred Device Logs`.
+   - Download the spanned `.zip` files. WS1 separates the logs into parts; there might be more than one file.
+
+## Example Execution:
+
 1. To run the script with default parameters:
    ```powershell
    .\UnzipSpannedLogFiles.ps1
