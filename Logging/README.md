@@ -38,7 +38,7 @@ Write-Log -Message "This is a warning message." -LogLevel "Warning"
 Write-Log -Message "An error occurred while processing." -LogLevel "Error"
 ```
 
-## UnzipSpannedLogFiles.ps1
+# Unzip Spanned Log File
 Unzip spanned log files downloaded from Workspace One admin console.
 
 Example Execution:
