@@ -14,18 +14,28 @@ The logging function allows you to log messages with different severity levels (
   - `-Message` (Mandatory): The log message to be recorded.
   - `-LogLevel` (Mandatory): The level of the log message. Options are `Info`, `Warning`, `Error`, `Debug`.
 
+### `Manage-LogFile`
+- **Parameters**:
+  - `-baseLogFileName` (Mandatory): The base log file name
+  - `-LogFilePath` (Mandatory): The log file location
+  - `-maxSizeMB` (Mandatory): the max log file size in MB
+  - `-maxFiles` (Mandatory): Maximum number of rotated log files
+
 ### Example Usage
 
 ```powershell
-$LogFileName = "FileName.log"
+# Example usage
+### Main Script ###
+$baseLogFileName = "example"  # Set the base log file name
+$LogFilePath = "$env:ProgramData\Airwatch\UnifiedAgent\Logs"
+$maxSizeMB = 5  # Maximum log file size in MB
+$maxSizeBytes = $maxSizeMB * 1MB
+$maxFiles = 4    # Maximum number of rotated log files
 
-# function Write-Log...
+Manage-LogFile -baseLogFileName $baseLogFileName -logFilePath $LogFilePath -maxSizeBytes $maxSizeBytes -maxFiles $maxFiles
 
-Write-Log -Message "Starting the script execution." -LogLevel "Info"
-# Your script logic here...
-Write-Log -Message "Successfully completed the file extraction." -LogLevel "Info"
-Write-Log -Message "This is a warning message." -LogLevel "Warning"
-Write-Log -Message "An error occurred while processing." -LogLevel "Error"
+Write-Log -LogLevel "Info" -Message "Starting Script"
+# Continue with the rest of your script...
 ```
 
 # Unzip Spanned Log File
